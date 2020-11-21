@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "./styles.css";
 import SearchData from "./SearchData";
 import api from "./api";
-import videosList from "./videosList";
+import VideosList from "./videosList";
+
+const KEY = "AIzaSyAf-5Kx_4fbYAHGMg8ezSgTitDLYD2eUkw";
 
 class App extends Component {
   state = {
@@ -11,16 +13,23 @@ class App extends Component {
   };
 
   handlesubmit = async (searchValue) => {
-    const videosData = await api.get("/search", {
+    const response = await api.get("/search", {
       params: {
-        q: searchValue
+        q: searchValue,
+        part: "snippet",
+        maxResults: 20,
+        key: KEY
       }
     });
+    const responseArr = response.data.items;
+    // const firstVideo =
+    //   responseArr[0].id.kind !== "youtube#channel"
+    //     ? responseArr[0]
+    //     : responseArr[1];
     this.setState({
-      videos: videosData.data.items
+      videos: responseArr
     });
-    console.log(this.state.videos);
-    console.log(videosData);
+    // setSelectedVideo(firstVideo);
   };
 
   render() {
@@ -29,7 +38,7 @@ class App extends Component {
         <div className="poo">
           <SearchData handleFormSubmit={this.handlesubmit} />
         </div>
-        <videosList videos={this.state.videos} />
+        <VideosList videos={this.state.videos} />
       </div>
     );
   }
