@@ -11,10 +11,15 @@ class SearchData extends React.Component {
     });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.handleFormSubmit(this.state.searchDataInput_component);
+  };
+
   render() {
     return (
       <div>
-        <form onSubmit={this.submitSearch} className="seacrchBar_component">
+        <form onSubmit={this.handleSubmit} className="seacrchBar_component">
           <input
             className="searchDataInput_component"
             type="text"

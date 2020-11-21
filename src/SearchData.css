@@ -1,16 +1,29 @@
 .searchDataInput_component {
   border: none;
   background-color: black;
-  padding: 10px;
+  padding: 5px;
   color: white;
   outline: none;
+  width: 130px;
 }
 
 .seacrchBar_component {
   display: flex;
-  text-align: center;
-  place-items: center;
+  justify-content: space-between;
   margin: 10px 10px 10px 10px;
   padding: 7px;
   background-color: crimson;
+}
+
+.Submitbutton_component {
+  border: none;
+  padding: 5px;
+  font-family: "Texturina", serif;
+  outline: none;
+}
+
+.Submitbutton_component:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
