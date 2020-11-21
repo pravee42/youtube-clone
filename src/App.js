@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles.css";
 import SearchData from "./SearchData";
 import api from "./api";
-import VideosList from "./videosList";
+import VideosList from "./VideosList";
 
 const KEY = "AIzaSyAf-5Kx_4fbYAHGMg8ezSgTitDLYD2eUkw";
 
@@ -38,7 +38,7 @@ class App extends Component {
         <div className="poo">
           <SearchData handleFormSubmit={this.handlesubmit} />
         </div>
-        <VideosList videos={this.state.videos} />
+        <VideosList Videos={this.state.videos} />
       </div>
     );
   }
