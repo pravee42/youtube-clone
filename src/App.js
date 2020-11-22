@@ -8,7 +8,7 @@ const KEY = "AIzaSyAf-5Kx_4fbYAHGMg8ezSgTitDLYD2eUkw";
 
 class App extends Component {
   state = {
-    videos: [],
+    videos: {},
     selectedVideo: null
   };
 
@@ -29,6 +29,7 @@ class App extends Component {
     this.setState({
       videos: responseArr
     });
+    console.log(this.state.videos);
     // setSelectedVideo(firstVideo);
   };
 
